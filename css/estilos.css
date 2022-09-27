@@ -1,6 +1,12 @@
-.boton_log {
-  margin-right: 20px;
+.nav_bkg {
+  z-index: 1;
 }
-.nav_boton ul{
-  /* padding-left: 32%; */
+.vista_principal{
+  width: 100%;
+  height: 100vh;
+  padding-top: 76px;
+}
+footer div div p {
+  text-align: center;
+  color: white;
 }

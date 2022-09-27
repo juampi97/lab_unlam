@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- CSS only -->
+    <!-- CSS Bootstrap -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -17,11 +17,13 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg bg-light">
+      <nav
+        class="navbar navbar-expand-lg bg-light nav_bkg fixed-top px-2 lg-px-4"
+      >
         <div class="container-fluid">
-            <a class="navbar-brand" href="./index.html">
-                <img src="./img/logo_unlam.svg" alt="logo unlam" width="50">
-              </a>
+          <a class="navbar-brand ps-2 ps-lg-4" href="./index.html">
+            <img src="./img/logo_unlam.svg" alt="logo unlam" width="50" />
+          </a>
           <button
             class="navbar-toggler"
             type="button"
@@ -34,30 +36,63 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Busquedas</a>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item me-2">
+                <a class="nav-link active" aria-current="page" href="#"
+                  >Busquedas</a
+                >
               </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Altas</a>
+              <li class="nav-item me-3">
+                <a class="nav-link active" aria-current="page" href="#"
+                  >Altas</a
+                >
               </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Bajas</a>
+              <li class="nav-item me-3">
+                <a class="nav-link active" aria-current="page" href="#"
+                  >Bajas</a
+                >
               </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Modificaciones</a>
+              <li class="nav-item me-3">
+                <a class="nav-link active" aria-current="page" href="#"
+                  >Modificaciones</a
+                >
               </li>
             </ul>
-              <button class="btn btn-outline-success boton_log" type="submit">
+            <div class="d-flex sm-flex-column lg-flex-column">
+              <button
+                class="btn btn-outline-success me-3 mb-2 w-sm-25 w-lg-50 h-auto mt-lg-2"
+                type="submit"
+              >
                 Login
               </button>
-              <button class="btn btn-success boton_log" type="submit">
+              <button
+                class="btn btn-success me-4 sm-w-25 h-50 mt-lg-2"
+                type="submit"
+              >
                 Sign-up
               </button>
+            </div>
           </div>
         </div>
       </nav>
     </header>
+    <main class="container-fluid">
+        <div class="row">
+          <div class="vista_principal">
+            <p>Aca irian las tablas</p>
+          </div>
+        </div>
+    </main>
+    <footer>
+      <div class="container-fluid">
+        <div class="row bg-dark">
+          <p>
+            Este sitio fue desarrollado por Maria Alejandra Balmaceda,con la
+            ayuda de Deborah Baner, Juan Calabro y Luciano Salvatore
+          </p>
+        </div>
+      </div>
+    </footer>
     <!-- JavaScript Bundle with Popper -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
