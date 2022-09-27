@@ -4,9 +4,9 @@
 .vista_principal{
   width: 100%;
   height: 100vh;
-  padding-top: 76px;
+  margin-top: 82px;
 }
-footer div div p {
+footer div p {
   text-align: center;
   color: white;
 }

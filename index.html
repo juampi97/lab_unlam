@@ -17,9 +17,10 @@
   </head>
   <body>
     <header>
+      <!-- Header nav -->
       <nav class="navbar bg-light nav_bkg fixed-top px-2 lg-px-4">
         <div class="container-fluid">
-
+          <!-- Submenu Izquierda - Instrumentos -->
           <div>
             <nav class="navbar">
               <div>
@@ -49,95 +50,125 @@
                       aria-label="Close"
                     ></button>
                   </div>
-                  
+
                   <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link active" href="#">Proyectores</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" href="#">Notebooks</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" href="#">Instrumentos</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" href="#">Libros</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" href="#">Reparaciones</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link active" href="#">Usuarios</a>
                       </li>
                     </ul>
                   </div>
-
                 </div>
               </div>
             </nav>
           </div>
-
+          <!-- Logo UNLaM -->
           <div class="me-lg-auto">
             <a class="navbar-brand ps-2 ps-lg-4" href="./index.html">
               <img src="./img/logo_unlam.svg" alt="logo unlam" width="50" />
             </a>
           </div>
-
+          <!-- Submenu derecha - Operaciones -->
           <div class="navbar-expand-lg">
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item me-2">
-                  <a class="nav-link active" aria-current="page" href="#"
-                    >Busquedas</a
-                  >
-                </li>
-                <li class="nav-item me-3">
-                  <a class="nav-link active" aria-current="page" href="#"
-                    >Altas</a
-                  >
-                </li>
-                <li class="nav-item me-3">
-                  <a class="nav-link active" aria-current="page" href="#"
-                    >Bajas</a
-                  >
-                </li>
-                <li class="nav-item me-3">
-                  <a class="nav-link active" aria-current="page" href="#"
-                    >Modificaciones</a
-                  >
-                </li>
-              </ul>
-              <div class="d-flex sm-flex-column lg-flex-column">
+            <nav class="navbar">
+              <div>
                 <button
-                  class="btn btn-outline-success me-3 mb-2 w-sm-25 w-lg-50 h-auto mt-lg-2"
-                  type="submit"
+                  class="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#offcanvasNavbar2"
+                  aria-controls="offcanvasNavbar2"
                 >
-                  Login
+                  <span class="navbar-toggler-icon"></span>
                 </button>
-                <button
-                  class="btn btn-success me-4 sm-w-25 h-50 mt-lg-2"
-                  type="submit"
+                <div
+                  class="offcanvas offcanvas-end"
+                  tabindex="-1"
+                  id="offcanvasNavbar2"
+                  aria-labelledby="offcanvasNavbar2Label"
                 >
-                  Sign-up
-                </button>
+                  <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbar2Label">
+                      ¿Que desea hacer?
+                    </h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="offcanvas"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+
+                  <div class="offcanvas-body">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                      <li class="nav-item me-2">
+                        <a class="nav-link active" aria-current="page" href="#"
+                          >Busquedas</a
+                        >
+                      </li>
+                      <li class="nav-item me-3">
+                        <a class="nav-link active" aria-current="page" href="#"
+                          >Altas</a
+                        >
+                      </li>
+                      <li class="nav-item me-3">
+                        <a class="nav-link active" aria-current="page" href="#"
+                          >Bajas</a
+                        >
+                      </li>
+                      <li class="nav-item me-3">
+                        <a class="nav-link active" aria-current="page" href="#"
+                          >Modificaciones</a
+                        >
+                      </li>
+                    </ul>
+                    <div class="d-flex flex-column flex-lg-row w-50">
+                      <button
+                        class="btn btn-outline-success me-3 mb-2 w-auto h-auto mt-lg-1"
+                        type="submit"
+                      >
+                        Login
+                      </button>
+                      <button
+                        class="btn btn-success me-3 mb-2 w-auto h-auto mt-lg-1"
+                        type="submit"
+                      >
+                        Sign-up
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
+            </nav>
           </div>
         </div>
       </nav>
     </header>
-    <main class="container-fluid">
-      <div class="row">
-        <div class="vista_principal">
-          <p>Aca irian las tablas</p>
-        </div>
+    <!-- Contenido principal -->
+    <main>
+      <div class="vista_principal">
+        <p>Aca van las paginas de accion sobre la base de datos</p>
       </div>
     </main>
-    <footer>
-      <div class="container-fluid">
-        <div class="row bg-dark">
-          <p>
-            Este sitio fue desarrollado por Maria Alejandra Balmaceda,con la
-            ayuda de Deborah Baner, Juan Calabro y Luciano Salvatore
-          </p>
-        </div>
+    <!-- Footer -->
+    <footer class="bg-dark w-100">
+      <div>
+        <p>Este sitio fue desarrollado por Maria Alejandra Balmaceda,con la ayuda de Deborah Baner, Juan Calabro y Luciano Salvatore</p>
       </div>
     </footer>
     <!-- JavaScript Bundle with Popper -->
