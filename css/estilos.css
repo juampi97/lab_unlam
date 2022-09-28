@@ -32,7 +32,7 @@ footer {
 
 .footer_txt {
   font-size: 0.6rem;
-  text-align: justify;
+  text-align: center;
 }
 
 /* Modificaciones index */
@@ -41,20 +41,19 @@ footer {
   margin-top: 72px;
 }
 
-  /* Modificaciones reservas */
-  .vista_principal_reservas {
-    width: 90%;
-    min-height: 100vh;
-    margin-top: 82px;
-  }
+/* Modificaciones reservas */
+.vista_principal_reservas {
+  width: 90%;
+  min-height: 100vh;
+  margin-top: 82px;
+}
 
-  .container_card {
-    width: 90%;
-  }
+.container_card {
+  width: 100%;
+}
 
 /* Css para tablet */
 @media (min-width: 768px) {
-
 }
 
 /* Css para Desktop */
