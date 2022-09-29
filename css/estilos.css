@@ -1,81 +1,53 @@
 /* Reset valores predeterminados */
 * {
   margin: 0;
-  padding: 0;
-}
-
-html {
-}
+  padding: 0; }
 
 a {
-  text-decoration: none;
-}
+  text-decoration: none; }
 
 ul,
 ol {
-  list-style: none;
-}
+  list-style: none; }
 
 p {
-  margin: 0;
-}
-/* Css para mobile */
+  margin: 0; }
 
+/* Css para mobile */
 /* Modificaciones generales */
 .nav_bkg {
-  z-index: 1;
-}
-
-footer {
-  color: white;
-}
+  z-index: 1; }
 
 .footer_txt {
   font-size: 0.6rem;
-  text-align: center;
-}
+  text-align: center; }
 
 /* Modificaciones index */
-.vista_principal {
+.main_principal {
   min-height: 100vh;
-  margin-top: 72px;
-}
+  margin-top: 72px; }
 
 /* Modificaciones reservas */
-.vista_principal_reservas {
+.main_reservas {
   width: 90%;
   min-height: 100vh;
-  margin-top: 82px;
-}
+  margin-top: 82px; }
 
-.container_card {
-  width: 100%;
-}
+.reservas_container_card {
+  width: 100%; }
 
 /* Css para tablet */
-@media (min-width: 768px) {
-}
-
 /* Css para Desktop */
 @media (min-width: 992px) {
   /* Modificaciones generales */
-
   .footer_txt {
     font-size: 0.8rem;
-    text-align: center;
-  }
-
+    text-align: center; }
   /* Modificaciones index */
-  .vista_principal {
-    margin-top: 82px;
-  }
-
+  .main_principal {
+    margin-top: 82px; }
   /* Modificaciones reservas */
-  .vista_principal_reservas {
-    margin-top: 82px;
-  }
-
-  .container_card {
-    width: 70%;
-  }
-}
+  .main_reservas {
+    margin-top: 82px; }
+  .reservas_container_card {
+    width: 70%; } }
