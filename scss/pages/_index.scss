@@ -1,0 +1,12 @@
+// mobile
+.main_principal {
+  min-height: 100vh;
+  margin-top: 72px;
+}
+
+//desktop
+@media (min-width: 992px) {
+  .main_principal {
+    margin-top: 82px;
+  }
+}

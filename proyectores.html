@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- CSS Bootstrap -->
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
-      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-      crossorigin="anonymous"
     />
     <!-- CSS propio -->
     <link rel="stylesheet" href="./css/estilos.css" />
@@ -186,20 +186,26 @@
             <h2>Proyectores</h2>
           </div>
           <!-- Seleccion de fecha que se desea hacer la reserva -->
-          <div class="row d-flex  justify-content-center">
-            <div class="col-12 col-lg-4 d-flex justify-content-center py-2 py-lg-3">
+          <div class="row d-flex justify-content-center">
+            <div
+              class="col-12 col-lg-4 d-flex justify-content-center py-2 py-lg-3"
+            >
               <p>Seleccione el dia que desea hacer la reserva:</p>
             </div>
-            <div class="col-10 col-md-3 col-lg-2 d-flex justify-content-center py-2 py-lg-3">
+            <div
+              class="col-10 col-md-3 col-lg-2 d-flex justify-content-center py-2 py-lg-3"
+            >
               <input
                 type="date"
                 value="2022-09-29"
-                min="2022-09-29"
+                <!-- min="2022-09-29" -->
                 max="2022-10-7"
                 step="1"
               />
             </div>
-            <div class="col-10 col-md-6 col-lg-4 d-flex justify-content-center py-2 py-lg-3">
+            <div
+              class="col-10 col-md-6 col-lg-4 d-flex justify-content-center py-2 py-lg-3"
+            >
               <select class="form-select" aria-label="Default select example">
                 <option selected>Seleccione un horario</option>
                 <option value="1">8:00 a 12:00</option>
@@ -207,12 +213,18 @@
                 <option value="3">19:00 a 23:00</option>
               </select>
             </div>
-            <div class="col-10 col-md-3 col-lg-2 d-flex justify-content-center py-2 py-lg-3">
-              <button type="button" class="btn btn-secondary">Seleccionar</button>
+            <div
+              class="col-10 col-md-3 col-lg-2 d-flex justify-content-center py-2 py-lg-3"
+            >
+              <button type="button" class="btn btn-secondary">
+                Seleccionar
+              </button>
             </div>
           </div>
           <!-- Cards proyectores -->
-          <div class="row d-flex justify-content-center reservas_container_card">
+          <div
+            class="row d-flex justify-content-center reservas_container_card"
+          >
             <!-- Card-1 -->
             <div class="col-sm-10 col-md-5 card m-2" style="width: 18rem">
               <div class="card-body">
@@ -870,5 +882,6 @@
       integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
       crossorigin="anonymous"
     ></script>
+    <script src="./js/fecha.js"></script>
   </body>
 </html>
