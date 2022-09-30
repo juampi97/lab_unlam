@@ -145,7 +145,10 @@
                         >
                       </li>
                       <li class="nav-item me-2">
-                        <a class="nav-link active" aria-current="page" href="./contacto.html"
+                        <a
+                          class="nav-link active"
+                          aria-current="page"
+                          href="./contacto.html"
                           >Contacto</a
                         >
                       </li>
@@ -176,8 +179,44 @@
     <main>
       <div class="container-fluid main_principal">
         <div class="row d-flex flex-row justify-content-center pt-3">
-          <div class="col-10 text-center">
-            <p>Aca iria el contenido principal</p>
+          <!-- Formulario -->
+          <div
+            class="col-10 col-md-8 col-lg-5 bg-secondary bg-opacity-25 my-2 p-3 rounded-3 shadow-sm"
+          >
+            <form>
+              <div class="mb-3">
+                <label for="name" class="form-label">Nombre y Apellido</label>
+                <input
+                  type="text"
+                  name="name"
+                  class="form-control"
+                  id="InputName"
+                  aria-describedby="name"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="mail" class="form-label">Correo electronico</label>
+                <input
+                  type="email"
+                  name="mail"
+                  class="form-control"
+                  id="InputEmail"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="mensaje" class="form-label">Mensaje</label>
+                <textarea
+                  name="mensaje"
+                  class="form-control"
+                  id="InputMessage"
+                  rows="3"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-success mb-1">Enviar</button>
+              <button type="reset" class="btn btn-success mb-1">
+                Limpiar formulario
+              </button>
+            </form>
           </div>
         </div>
       </div>
