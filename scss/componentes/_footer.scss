@@ -1,13 +1,9 @@
-// mobile
 .footer_txt {
   font-size: 0.6rem;
   text-align: center;
-}
-
-// desktop
-@media (min-width: 992px) {
-  .footer_txt {
-    font-size: 0.8rem;
-    text-align: center;
+  @media (min-width: 992px) {
+    .footer_txt {
+      font-size: 0.8rem;
+    }
   }
 }
