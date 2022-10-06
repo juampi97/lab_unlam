@@ -8381,14 +8381,15 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important; } }
 
+p {
+  margin: 0; }
+
 .footer_txt {
   font-size: 0.6rem;
   text-align: center; }
-
-@media (min-width: 992px) {
-  .footer_txt {
-    font-size: 0.8rem;
-    text-align: center; } }
+  @media (min-width: 992px) {
+    .footer_txt .footer_txt {
+      font-size: 0.8rem; } }
 
 .nav_bkg {
   z-index: 1; }
@@ -8396,25 +8397,20 @@ textarea.form-control-lg {
 .main_principal {
   min-height: 100vh;
   margin-top: 72px; }
-
-@media (min-width: 992px) {
-  .main_principal {
-    margin-top: 82px; } }
+  @media (min-width: 992px) {
+    .main_principal .main_principal {
+      margin-top: 82px; } }
 
 .main_reservas {
   width: 90%;
   min-height: 100vh;
   margin-top: 82px; }
+  @media (min-width: 992px) {
+    .main_reservas .main_reservas {
+      margin-top: 82px; } }
 
 .reservas_container_card {
   width: 100%; }
-
-@media (min-width: 992px) {
-  .main_reservas {
-    margin-top: 82px; }
-  .reservas_container_card {
-    width: 70%; } }
-
-/* Reset valores predeterminados */
-p {
-  margin: 0; }
+  @media (min-width: 992px) {
+    .reservas_container_card .reservas_container_card {
+      width: 70%; } }
