@@ -1,13 +1,6 @@
 <?php
-
-require 'config/database.php';
-$db   = new Database();
-$con  = $db->conectar();
-
-$sql  = $con->prepare("SELECT cod_rec, marca, modelo, vga, hdmi FROM notebooks");
-$sql->execute();
-$resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
-
+require 'config/conexion.php';
+$resultado = mysqli_query($con, "SELECT * FROM notebooks ORDER BY cod_rec");
 ?>
 
 <!DOCTYPE html>
@@ -79,7 +72,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <!-- Logo UNLaM -->
         <div class="me-lg-auto">
-          <a class="navbar-brand ps-2 ps-lg-4" href="./index.php">
+          <a class="navbar-brand ps-2 ps-lg-4" href="./index.html">
             <img src="./img/logo_unlam.svg" alt="logo unlam" width="50" />
           </a>
         </div>
@@ -147,7 +140,7 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
           <h2>Notebooks</h2>
         </div>
         <!-- Seleccion de fecha que se desea hacer la reserva -->
-        <div class="row d-flex justify-content-center">
+        <!-- <div class="row d-flex justify-content-center">
           <div class="col-12 col-lg-4 d-flex justify-content-center py-2 py-lg-3">
             <p>Seleccione el dia que desea hacer la reserva:</p>
           </div>
@@ -171,12 +164,61 @@ $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
               Seleccionar
             </button>
           </div>
+        </div> -->
+
+        <!-- Busqueda avanzada -->
+        <?php
+        $resultado_marca = mysqli_query($cnx, "SELECT *  FROM notebooks_marca");
+        ?>
+        <div class="container-fluid my-2">
+          <!-- Formulario busqueda -->
+          <form action="" method="get">
+            <div class="row d-flex justify-content-center">
+              <div class="col-5 d-flex flex-row">
+                <select class="form-select mx-1" name="busqueda_marca" aria-label="Default select example" id="">
+                  <option selected>Marca</option>
+                  <?php foreach ($resultado_marca as $marca) {
+                  ?>
+                    <option><?php echo $marca['marca'] ?></option>
+                  <?php
+                  }
+                  ?>
+                </select>
+                <select class="form-select mx-1" name="busqueda_cod_rec" aria-label="Default select example" id="">
+                  <option selected>Modelo</option>
+                  <?php foreach ($resultado as $notebooks) {
+                  ?>
+                    <option><?php echo $notebooks['cod_rec'] ?></option>
+                  <?php
+                  }
+                  ?>
+                </select>
+              </div>
+              <div class="col-1">
+                <input class="btn btn-secondary" type="submit" name="reset" value="Reset">
+              </div>
+              <div class="col-1">
+                <input class="btn btn-success" type="submit" name="enviar" value="Buscar">
+              </div>
+            </div>
+          </form>
         </div>
+        <?php
+
+        if (isset($_GET['enviar'])) {
+          $busqueda_marca = $_GET['busqueda_marca'];
+          $busqueda_cod_rec = $_GET['busqueda_cod_rec'];
+          $consulta = $con->query("SELECT * FROM notebooks WHERE (marca  LIKE '$busqueda_marca') OR (cod_rec  LIKE '$busqueda_cod_rec')");
+        } else{
+          $consulta = $con->query("SELECT * FROM notebooks");
+        }
+
+        ?>
 
         <!-- Cards proyectores -->
         <div class="row d-flex justify-content-center reservas_container_card">
           <!-- Card-1 -->
-          <?php foreach ($resultado as $row) { ?>
+          <?php foreach ($consulta as $row) { ?>
             <div class="col-sm-10 col-md-5 card m-2" style="width: 20rem">
               <div class="card-body">
                 <div class="text-center">

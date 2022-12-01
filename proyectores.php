@@ -1,7 +1,5 @@
 <?php
-
-//$con = @mysqli_connect('localhost', 'root', '', 'laboratorio');
-$con = @mysqli_connect('localhost', 'id19913514_root', 'Electronica.5000', 'id19913514_laboratorio');
+require 'config/conexion.php';
 $resultado = mysqli_query($con, "SELECT * FROM proyectores ORDER BY cod_rec");
 ?>
 
@@ -97,7 +95,7 @@ $resultado = mysqli_query($con, "SELECT * FROM proyectores ORDER BY cod_rec");
                       <a class="nav-link active" aria-current="page" href="./proyectores.php">Proyectores</a>
                     </li>
                     <li class="nav-item me-2">
-                      <a class="nav-link active disabled" aria-current="page" href="./notebooks.php">Notebooks</a>
+                      <a class="nav-link active" aria-current="page" href="./notebooks.php">Notebooks</a>
                     </li>
                     <li class="nav-item me-2">
                       <a class="nav-link active disabled" aria-current="page" href="#">Instrumentos</a>
@@ -169,47 +167,40 @@ $resultado = mysqli_query($con, "SELECT * FROM proyectores ORDER BY cod_rec");
 
         <!-- Busqueda avanzada -->
         <?php
-        //$cnx = @mysqli_connect('localhost', 'root', '', 'laboratorio');
-        $cnx = @mysqli_connect('localhost', 'id19913514_root', 'Electronica.5000', 'id19913514_laboratorio');
         $resultado_marca = mysqli_query($cnx, "SELECT *  FROM proyectores_marca");
         ?>
-        <div class="my-2">
-          <div class="col-12">
-            <!-- Formulario busqueda -->
-            <form action="" method="get">
-              <div class="d-flex justify-content-center">
-                <div class="col-10 col-lg-5 d-flex flex-column flex-lg-row">
-                  <select class="form-select my-1 my-lg-0 mx-2" name="busqueda_marca" aria-label="Default select example" id="">
-                    <option selected>Marca</option>
-                    <?php foreach ($resultado_marca as $marca) {
-                    ?>
-                      <option><?php echo $marca['marca'] ?></option>
-                    <?php
-                    }
-                    ?>
-                  </select>
-                  <select class="form-select my-1 my-lg-0 mx-2" name="busqueda_cod_rec" aria-label="Default select example" id="">
-                    <option selected>Modelo</option>
-                    <?php foreach ($resultado as $proyectores) {
-                    ?>
-                      <option><?php echo $proyectores['cod_rec'] ?></option>
-                    <?php
-                    }
-                    ?>
-                  </select>
-                </div>
-                <div class="row d-flex flex-column flex-lg-row">
-                  <div class="d-flex col-2 my-1 my-lg-0 mx-2 mx-lg-4">
-                    <input class="btn btn-secondary" type="submit" name="reset" value="Reset">
-                  </div>
-                  <div class="d-flex col-2 my-1 my-lg-0 mx-2 mx-lg-4">
-                    <input class="btn btn-success" type="submit" name="enviar" value="Buscar">
-                  </div>
-                </div>
-                
+        <div class="container-fluid my-2">
+          <!-- Formulario busqueda -->
+          <form action="" method="get">
+            <div class="row d-flex justify-content-center">
+              <div class="col-5 d-flex flex-row">
+                <select class="form-select mx-1" name="busqueda_marca" aria-label="Default select example" id="">
+                  <option selected>Marca</option>
+                  <?php foreach ($resultado_marca as $marca) {
+                  ?>
+                    <option><?php echo $marca['marca'] ?></option>
+                  <?php
+                  }
+                  ?>
+                </select>
+                <select class="form-select mx-1" name="busqueda_cod_rec" aria-label="Default select example" id="">
+                  <option selected>Modelo</option>
+                  <?php foreach ($resultado as $proyectores) {
+                  ?>
+                    <option><?php echo $proyectores['cod_rec'] ?></option>
+                  <?php
+                  }
+                  ?>
+                </select>
               </div>
-            </form>
-          </div>
+              <div class="col-1">
+                <input class="btn btn-secondary" type="submit" name="reset" value="Reset">
+              </div>
+              <div class="col-1">
+                <input class="btn btn-success" type="submit" name="enviar" value="Buscar">
+              </div>
+            </div>
+          </form>
         </div>
         <?php
 
