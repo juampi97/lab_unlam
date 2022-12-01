@@ -5,6 +5,7 @@ $resultado = mysqli_query($con, "SELECT * FROM proyectores ORDER BY cod_rec");
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -19,6 +20,7 @@ $resultado = mysqli_query($con, "SELECT * FROM proyectores ORDER BY cod_rec");
   <link rel="icon" type="image/x-icon" href="./img/logo_unlam.svg" />
   <title>Laboratorio Electronica</title>
 </head>
+
 <body>
   <header>
     <!-- Header nav -->
@@ -173,8 +175,8 @@ $resultado = mysqli_query($con, "SELECT * FROM proyectores ORDER BY cod_rec");
           <!-- Formulario busqueda -->
           <form action="" method="get">
             <div class="row d-flex justify-content-center">
-              <div class="col-5 d-flex flex-row">
-                <select class="form-select mx-1" name="busqueda_marca" aria-label="Default select example" id="">
+              <div class="col-10 col-lg-5 d-flex flex-column flex-lg-row my-2">
+                <select class="form-select mx-3 my-1 my-lg-0" name="busqueda_marca" aria-label="Default select example" id="">
                   <option selected>Marca</option>
                   <?php foreach ($resultado_marca as $marca) {
                   ?>
@@ -183,7 +185,7 @@ $resultado = mysqli_query($con, "SELECT * FROM proyectores ORDER BY cod_rec");
                   }
                   ?>
                 </select>
-                <select class="form-select mx-1" name="busqueda_cod_rec" aria-label="Default select example" id="">
+                <select class="form-select mx-3 my-1 my-lg-0" name="busqueda_cod_rec" aria-label="Default select example" id="">
                   <option selected>Modelo</option>
                   <?php foreach ($resultado as $proyectores) {
                   ?>
@@ -193,31 +195,31 @@ $resultado = mysqli_query($con, "SELECT * FROM proyectores ORDER BY cod_rec");
                   ?>
                 </select>
               </div>
-              <div class="col-1">
-                <input class="btn btn-secondary" type="submit" name="reset" value="Reset">
-              </div>
-              <div class="col-1">
-                <input class="btn btn-success" type="submit" name="enviar" value="Buscar">
+              <div class="col-10 col-lg-3 d-flex justify-content-center my-1">
+                <input class="btn btn-secondary mx-2 px-lg-3" type="submit" name="reset" value="Reset">
+                <input class="btn btn-success mx-2 px-lg-3" type="submit" name="enviar" value="Buscar">
               </div>
             </div>
-          </form>
+
         </div>
-        <?php
+        </form>
+      </div>
+      <?php
 
-        if (isset($_GET['enviar'])) {
-          $busqueda_marca = $_GET['busqueda_marca'];
-          $busqueda_cod_rec = $_GET['busqueda_cod_rec'];
-          $consulta = $con->query("SELECT * FROM proyectores WHERE (marca  LIKE '$busqueda_marca') OR (cod_rec  LIKE '$busqueda_cod_rec')");
-        } else{
-          $consulta = $con->query("SELECT * FROM proyectores");
-        }
+      if (isset($_GET['enviar'])) {
+        $busqueda_marca = $_GET['busqueda_marca'];
+        $busqueda_cod_rec = $_GET['busqueda_cod_rec'];
+        $consulta = $con->query("SELECT * FROM proyectores WHERE (marca  LIKE '$busqueda_marca') OR (cod_rec  LIKE '$busqueda_cod_rec')");
+      } else {
+        $consulta = $con->query("SELECT * FROM proyectores");
+      }
 
-        ?>
+      ?>
 
-        <!-- Cards proyectores -->
-        <div class="row d-flex justify-content-center reservas_container_card">
-          <!-- Card-1 -->
-          <?php foreach ($consulta as $row) {
+      <!-- Cards proyectores -->
+      <div class="row d-flex justify-content-center reservas_container_card">
+        <!-- Card-1 -->
+        <?php foreach ($consulta as $row) {
 
           //Verificacion HDMI - VGA
           if ($row['vga'] == "1") {
@@ -231,57 +233,56 @@ $resultado = mysqli_query($con, "SELECT * FROM proyectores ORDER BY cod_rec");
             $entrada_hdmi = "No disponible";
           }
 
-          ?>
-            <div class="col-sm-10 col-md-5 card m-2" style="width: 20rem">
-              <div class="card-body">
-                <div class="text-center">
-                  <h5 class="card-title"> <?php echo $row['cod_rec'] ?> </h5>
+        ?>
+          <div class="col-sm-10 col-md-5 card m-2" style="width: 20rem">
+            <div class="card-body">
+              <div class="text-center">
+                <h5 class="card-title"> <?php echo $row['cod_rec'] ?> </h5>
+              </div>
+              <div class="text-start">
+                <p class="card-text py-2">Marca: <?php echo $row['marca'] ?></p>
+                <p class="card-text py-2">Modelo: <?php echo $row['modelo'] ?></p>
+                <p class="py-2">El maletín incluye alimentación, cabla VGA y zapatilla multitoma.</p>
+                <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="adicional_hdmi" value="agregado">
+                  <label class="form-check-label" for="exampleCheck1">HDMI (opcional)</label>
                 </div>
-                <div class="text-start">
-                  <p class="card-text py-2">Marca: <?php echo $row['marca'] ?></p>
-                  <p class="card-text py-2">Modelo: <?php echo $row['modelo'] ?></p>
-                  <p class="py-2">El maletín incluye alimentación, cabla VGA y zapatilla multitoma.</p>
-                  <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="adicional_hdmi" value="agregado">
-                    <label class="form-check-label" for="exampleCheck1">HDMI (opcional)</label>
-                  </div>
-                  <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="adicional_zapatilla" value="agregado">
-                    <label class="form-check-label" for="exampleCheck1">Zapatilla adicional (opcional)</label>
-                  </div>
+                <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="adicional_zapatilla" value="agregado">
+                  <label class="form-check-label" for="exampleCheck1">Zapatilla adicional (opcional)</label>
                 </div>
-                <div class="text-center pt-2">
-                  <div class="row d-flex">
-                    <div class="col boton_reserva">
-                      <!-- Button trigger modal -->
-                      <button type="button" class="btn btn-success">Agregar</button>
-                    </div>
-                    <div class="col boton_info">
-                      <!-- Button trigger modal -->
-                      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalInfo_<?php echo $row['cod_rec'] ?>">
-                        Mas info
-                      </button>
-                      <!-- Modal -->
-                      <div class="modal fade" id="modalInfo_<?php echo $row['cod_rec'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="modalInfo_<?php echo $row['cod_rec'] ?>">
-                                <?php echo $row['cod_rec'] ?>
-                              </h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body text-start">
-                              <p>Marca: <?php echo $row['marca'] ?></p>
-                              <p>Modelo: <?php echo $row['modelo'] ?></p>
-                              <p>Entrada VGA: <?php echo $entrada_vga ?></p>
-                              <p>Entrada HDMI: <?php echo $entrada_hdmi ?></p>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                Cerrar
-                              </button>
-                            </div>
+              </div>
+              <div class="text-center pt-2">
+                <div class="row d-flex">
+                  <div class="col boton_reserva">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-success">Agregar</button>
+                  </div>
+                  <div class="col boton_info">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalInfo_<?php echo $row['cod_rec'] ?>">
+                      Mas info
+                    </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="modalInfo_<?php echo $row['cod_rec'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="modalInfo_<?php echo $row['cod_rec'] ?>">
+                              <?php echo $row['cod_rec'] ?>
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body text-start">
+                            <p>Marca: <?php echo $row['marca'] ?></p>
+                            <p>Modelo: <?php echo $row['modelo'] ?></p>
+                            <p>Entrada VGA: <?php echo $entrada_vga ?></p>
+                            <p>Entrada HDMI: <?php echo $entrada_hdmi ?></p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                              Cerrar
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -290,9 +291,10 @@ $resultado = mysqli_query($con, "SELECT * FROM proyectores ORDER BY cod_rec");
                 </div>
               </div>
             </div>
-          <?php } ?>
-        </div>
+          </div>
+        <?php } ?>
       </div>
+    </div>
     </div>
   </main>
   <!-- Footer -->
