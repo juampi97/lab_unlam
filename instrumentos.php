@@ -168,7 +168,7 @@ $resultado = mysqli_query($con, "SELECT * FROM notebooks ORDER BY cod_rec");
 
         <!-- Busqueda avanzada -->
         <?php
-        $tipos_instrumento = mysqli_query($cnx, "SELECT *  FROM instrumentos_tipo");
+        $tipos_instrumento = mysqli_query($cnx, "SELECT *  FROM instrumentos_tipo ORDER BY tipo");
         ?>
         <div class="container-fluid my-2">
           <!-- Formulario busqueda -->
@@ -179,7 +179,7 @@ $resultado = mysqli_query($con, "SELECT * FROM notebooks ORDER BY cod_rec");
                   <option selected>Tipo de instrumentos</option>
                   <?php foreach ($tipos_instrumento as $tipo) {
                   ?>
-                    <option><?php echo $tipo['tag_bd'] ?></option>
+                    <option><?php echo $tipo['tipo'] ?></option>
                   <?php
                   }
                   ?>
@@ -196,10 +196,11 @@ $resultado = mysqli_query($con, "SELECT * FROM notebooks ORDER BY cod_rec");
 
         if (isset($_GET['enviar'])) {
           $busqueda_tipo = $_GET['busqueda_tipo'];
-
-          $consulta = $con->query("SELECT * FROM instrumentos WHERE (tipo  LIKE '$busqueda_tipo')");
+          $consulta = mysqli_query($cnx,"SELECT * FROM instrumentos_tipo WHERE (tipo  LIKE '$busqueda_tipo' )");
+          foreach ($consulta as $tipo)
+          $consulta = mysqli_query($cnx,"SELECT * FROM instrumentos WHERE (tipo  LIKE '$tipo[tag_bd]')");
         } else {
-          $consulta = $con->query("SELECT * FROM instrumentos");
+          $consulta = mysqli_query($cnx,"SELECT * FROM instrumentos");
         }
 
         ?>
