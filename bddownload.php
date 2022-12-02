@@ -39,25 +39,16 @@
                 <div class="offcanvas-body">
                   <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
-                      <a class="nav-link active" href="#">Pedidos</a>
+                      <a class="nav-link active disabled" href="#">Pedidos</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link active" href="#">Busquedas</a>
+                      <a class="nav-link active" href="./busquedas.php">Busquedas</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link active" href="#">Altas</a>
+                      <a class="nav-link active disabled" href="#">Reparaciones</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link active" href="#">Bajas</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active" href="#">Reparaciones</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active" href="#">Modificaciones</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active" href="#">Usuarios</a>
+                      <a class="nav-link active disabled" href="#">Usuarios</a>
                     </li>
                   </ul>
                 </div>
@@ -87,7 +78,7 @@
                 </div>
 
                 <div class="offcanvas-body">
-                  <ul class="navbar-nav ms-auto mb-2 mb-lg-0">  
+                  <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item me-2">
                       <a class="nav-link active" aria-current="page" href="./proyectores.php">Proyectores</a>
                     </li>

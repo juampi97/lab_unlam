@@ -17,7 +17,7 @@
 </head>
 
 <body>
-<header>
+  <header>
     <!-- Header nav -->
     <nav class="navbar bg-light nav_bkg fixed-top px-2 lg-px-4">
       <div class="container-fluid">
@@ -39,25 +39,16 @@
                 <div class="offcanvas-body">
                   <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
-                      <a class="nav-link active" href="#">Pedidos</a>
+                      <a class="nav-link active disabled" href="#">Pedidos</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link active" href="#">Busquedas</a>
+                      <a class="nav-link active" href="./busquedas.php">Busquedas</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link active" href="#">Altas</a>
+                      <a class="nav-link active disabled" href="#">Reparaciones</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link active" href="#">Bajas</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active" href="#">Reparaciones</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active" href="#">Modificaciones</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link active" href="#">Usuarios</a>
+                      <a class="nav-link active disabled" href="#">Usuarios</a>
                     </li>
                   </ul>
                 </div>
@@ -92,7 +83,7 @@
                       <a class="nav-link active" aria-current="page" href="./proyectores.php">Proyectores</a>
                     </li>
                     <li class="nav-item me-2">
-                      <a class="nav-link active" aria-current="page" href="./notebooks.php">Notebooks</a>
+                      <a class="nav-link active " aria-current="page" href="./notebooks.php">Notebooks</a>
                     </li>
                     <li class="nav-item me-2">
                       <a class="nav-link active" aria-current="page" href="./instrumentos.php">Instrumentos</a>
@@ -117,13 +108,13 @@
                     <button class="btn btn-success me-3 mb-2 w-auto h-auto mt-lg-1" type="submit">
                       Sign-up
                     </button> -->
-                  </div>
                 </div>
               </div>
             </div>
-          </nav>
         </div>
-      </div>
+    </nav>
+    </div>
+    </div>
     </nav>
   </header>
   <!-- Contenido principal -->
