@@ -174,8 +174,8 @@ $resultado = mysqli_query($con, "SELECT * FROM notebooks ORDER BY cod_rec");
           <!-- Formulario busqueda -->
           <form action="" method="get">
             <div class="row d-flex justify-content-center">
-              <div class="col-5 d-flex flex-row">
-                <select class="form-select mx-1" name="busqueda_marca" aria-label="Default select example" id="">
+              <div class="col-10 col-lg-5 d-flex flex-column flex-lg-row my-2">
+                <select class="form-select mx-3 my-1" name="busqueda_marca" aria-label="Default select example" id="">
                   <option selected>Marca</option>
                   <?php foreach ($resultado_marca as $marca) {
                   ?>
@@ -184,7 +184,7 @@ $resultado = mysqli_query($con, "SELECT * FROM notebooks ORDER BY cod_rec");
                   }
                   ?>
                 </select>
-                <select class="form-select mx-1" name="busqueda_cod_rec" aria-label="Default select example" id="">
+                <select class="form-select mx-3 my-1" name="busqueda_cod_rec" aria-label="Default select example" id="">
                   <option selected>Modelo</option>
                   <?php foreach ($resultado as $notebooks) {
                   ?>
@@ -194,11 +194,9 @@ $resultado = mysqli_query($con, "SELECT * FROM notebooks ORDER BY cod_rec");
                   ?>
                 </select>
               </div>
-              <div class="col-1">
-                <input class="btn btn-secondary" type="submit" name="reset" value="Reset">
-              </div>
-              <div class="col-1">
-                <input class="btn btn-success" type="submit" name="enviar" value="Buscar">
+              <div class="col-10 col-lg-3 d-flex justify-content-center my-3">
+                <input class="btn btn-secondary mx-2 px-lg-3" type="submit" name="reset" value="Reset">
+                <input class="btn btn-success mx-2 px-lg-3" type="submit" name="enviar" value="Buscar">
               </div>
             </div>
           </form>
