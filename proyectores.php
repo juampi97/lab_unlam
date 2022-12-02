@@ -100,7 +100,7 @@ $resultado = mysqli_query($con, "SELECT * FROM proyectores ORDER BY cod_rec");
                       <a class="nav-link active" aria-current="page" href="./notebooks.php">Notebooks</a>
                     </li>
                     <li class="nav-item me-2">
-                      <a class="nav-link active disabled" aria-current="page" href="#">Instrumentos</a>
+                      <a class="nav-link active" aria-current="page" href="./instrumentos.php">Instrumentos</a>
                     </li>
                     <li class="nav-item me-2">
                       <a class="nav-link active disabled" aria-current="page" href="#">Libros</a>

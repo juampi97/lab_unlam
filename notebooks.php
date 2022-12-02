@@ -100,10 +100,10 @@ $resultado = mysqli_query($con, "SELECT * FROM notebooks ORDER BY cod_rec");
                       <a class="nav-link active" aria-current="page" href="./notebooks.php">Notebooks</a>
                     </li>
                     <li class="nav-item me-2">
-                      <a class="nav-link active" aria-current="page" href="#">Instrumentos</a>
+                      <a class="nav-link active" aria-current="page" href="./instrumentos.php">Instrumentos</a>
                     </li>
                     <li class="nav-item me-2">
-                      <a class="nav-link active" aria-current="page" href="#">Libros</a>
+                      <a class="nav-link active disabled" aria-current="page" href="#">Libros</a>
                     </li>
                     <li class="nav-item me-2">
                       <a class="nav-link active" aria-current="page" href="./bddownload.php">Descargas</a>
@@ -112,7 +112,7 @@ $resultado = mysqli_query($con, "SELECT * FROM notebooks ORDER BY cod_rec");
                       <a class="nav-link active" aria-current="page" href="./contacto.php">Contacto</a>
                     </li>
                     <li class="nav-item me-2">
-                      <a class="btn btn-success me-3 mb-2 w-auto h-auto mt-lg-1" aria-current="page" href="./carrito.php">Carrito</a>
+                      <a class="btn btn-success me-3 mb-2 w-auto h-auto mt-lg-1 disabled" aria-current="page" href="./carrito.php">Carrito</a>
                     </li>
                   </ul>
                   <!-- <div class="d-flex flex-column flex-lg-row w-50">
@@ -174,8 +174,8 @@ $resultado = mysqli_query($con, "SELECT * FROM notebooks ORDER BY cod_rec");
           <!-- Formulario busqueda -->
           <form action="" method="get">
             <div class="row d-flex justify-content-center">
-              <div class="col-10 col-md-7 d-flex flex-column flex-md-row my-2">
-                <select class="form-select mx-3 my-1" name="busqueda_marca" aria-label="Default select example" id="">
+              <div class="col-5 d-flex flex-row">
+                <select class="form-select mx-1" name="busqueda_marca" aria-label="Default select example" id="">
                   <option selected>Marca</option>
                   <?php foreach ($resultado_marca as $marca) {
                   ?>
@@ -184,7 +184,7 @@ $resultado = mysqli_query($con, "SELECT * FROM notebooks ORDER BY cod_rec");
                   }
                   ?>
                 </select>
-                <select class="form-select mx-3 my-1" name="busqueda_cod_rec" aria-label="Default select example" id="">
+                <select class="form-select mx-1" name="busqueda_cod_rec" aria-label="Default select example" id="">
                   <option selected>Modelo</option>
                   <?php foreach ($resultado as $notebooks) {
                   ?>
@@ -194,9 +194,11 @@ $resultado = mysqli_query($con, "SELECT * FROM notebooks ORDER BY cod_rec");
                   ?>
                 </select>
               </div>
-              <div class="col-10 col-md-3 d-flex justify-content-center my-3">
-                <input class="btn btn-secondary mx-2 px-md-3" type="submit" name="reset" value="Reset">
-                <input class="btn btn-success mx-2 px-md-3" type="submit" name="enviar" value="Buscar">
+              <div class="col-1">
+                <input class="btn btn-secondary" type="submit" name="reset" value="Reset">
+              </div>
+              <div class="col-1">
+                <input class="btn btn-success" type="submit" name="enviar" value="Buscar">
               </div>
             </div>
           </form>
@@ -240,32 +242,8 @@ $resultado = mysqli_query($con, "SELECT * FROM notebooks ORDER BY cod_rec");
                     <div class="col boton_reserva">
                       <!-- Button trigger modal -->
                       <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalReserva">
-                        Reservar
+                        Agregar
                       </button>
-                      <!-- Modal -->
-                      <div class="modal fade" id="modalReserva" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">
-                                <?php echo $row['cod_rec'] ?>
-                              </h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                              ¿Desea confirmar la reserva?
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                                Cancelar
-                              </button>
-                              <button type="submit" class="btn btn-success">
-                                Reservar
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
                     </div>
                     <div class="col boton_info">
                       <!-- Button trigger modal -->

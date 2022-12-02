@@ -1,3 +1,8 @@
+<?php
+require 'config/conexion.php';
+$resultado = mysqli_query($con, "SELECT * FROM notebooks ORDER BY cod_rec");
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -87,12 +92,12 @@
                 </div>
 
                 <div class="offcanvas-body">
-                  <ul class="navbar-nav ms-auto mb-2 mb-lg-0">  
+                  <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item me-2">
                       <a class="nav-link active" aria-current="page" href="./proyectores.php">Proyectores</a>
                     </li>
                     <li class="nav-item me-2">
-                      <a class="nav-link active " aria-current="page" href="./notebooks.php">Notebooks</a>
+                      <a class="nav-link active" aria-current="page" href="./notebooks.php">Notebooks</a>
                     </li>
                     <li class="nav-item me-2">
                       <a class="nav-link active" aria-current="page" href="./instrumentos.php">Instrumentos</a>
@@ -128,22 +133,134 @@
   </header>
   <!-- Contenido principal -->
   <main>
-    <div class="container-fluid main_principal">
-      <div class="row d-flex flex-row justify-content-center pt-3">
-        <div class="col-10 d-flex justify-content-center my-4 ">
-          <div class="col-3 d-flex justify-content-center py-4 ">
-            <ul class="navbar-nav justify-content-center">
-              <li class="nav-item align-items-center my-2 py-2 px-4 bg-success text-white rounded">
-                <a class="nav-link active d-flex justify-content-center" aria-current="page" href="./dwproyectores.php">Proyectores</a>
-              </li>
-              <li class="nav-item my-2 py-2 px-4 bg-success text-white rounded">
-                <a class="nav-link active d-flex justify-content-center" aria-current="page" href="./dwnotebooks.php">Notebooks</a>
-              </li>
-              <li class="nav-item my-2 py-2 px-4 bg-success text-white rounded">
-                <a class="nav-link active justify-content-center d-flex justify-content-center" aria-current="page" href="./dwinstrumentos.php">Instrumentos</a>
-              </li>
-            </ul>
+    <div class="container-fluid main_reservas">
+      <div class="row d-flex justify-content-center">
+        <!-- Titulo pagina -->
+        <div class="col-10 text-center py-3">
+          <h2>Instrumentos</h2>
+        </div>
+        <!-- Seleccion de fecha que se desea hacer la reserva -->
+        <!-- <div class="row d-flex justify-content-center">
+          <div class="col-12 col-lg-4 d-flex justify-content-center py-2 py-lg-3">
+            <p>Seleccione el dia que desea hacer la reserva:</p>
           </div>
+          <div class="col-10 col-md-3 col-lg-2 d-flex justify-content-center py-2 py-lg-3">
+            <?php
+            $fechamin = date('Y-m-d');
+            $fechamax = date('Y-m-d', strtotime("+7days"));
+            ?>
+            <input type="date" value="<?= $fechamin; ?>" min="<?= $fechamin; ?>" max="<?= $fechamax; ?>" step="1" />
+          </div>
+          <div class="col-10 col-md-6 col-lg-4 d-flex justify-content-center py-2 py-lg-3">
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Seleccione un horario</option>
+              <option value="1">8:00 a 12:00</option>
+              <option value="2">14:00 a 18:00</option>
+              <option value="3">19:00 a 23:00</option>
+            </select>
+          </div>
+          <div class="col-10 col-md-3 col-lg-2 d-flex justify-content-center py-2 py-lg-3">
+            <button type="button" class="btn btn-secondary">
+              Seleccionar
+            </button>
+          </div>
+        </div> -->
+
+        <!-- Busqueda avanzada -->
+        <?php
+        $tipos_instrumento = mysqli_query($cnx, "SELECT *  FROM instrumentos_tipo");
+        ?>
+        <div class="container-fluid my-2">
+          <!-- Formulario busqueda -->
+          <form action="" method="get">
+            <div class="row d-flex justify-content-center">
+              <div class="col-10 col-md-6 col-lg-5 d-flex flex-column flex-md-row my-2">
+                <select class="form-select mx-3 my-1" name="busqueda_tipo" aria-label="Default select example" id="">
+                  <option selected>Tipo de instrumentos</option>
+                  <?php foreach ($tipos_instrumento as $tipo) {
+                  ?>
+                    <option><?php echo $tipo['tag_bd'] ?></option>
+                  <?php
+                  }
+                  ?>
+                </select>
+              </div>
+              <div class="col-10 col-md-3 d-flex justify-content-center my-3">
+                <input class="btn btn-secondary mx-2 px-md-3" type="submit" name="reset" value="Reset">
+                <input class="btn btn-success mx-2 px-md-3" type="submit" name="enviar" value="Buscar">
+              </div>
+            </div>
+          </form>
+        </div>
+        <?php
+
+        if (isset($_GET['enviar'])) {
+          $busqueda_tipo = $_GET['busqueda_tipo'];
+
+          $consulta = $con->query("SELECT * FROM instrumentos WHERE (tipo  LIKE '$busqueda_tipo')");
+        } else {
+          $consulta = $con->query("SELECT * FROM instrumentos");
+        }
+
+        ?>
+
+        <!-- Cards proyectores -->
+        <div class="row d-flex justify-content-center reservas_container_card">
+          <!-- Card-1 -->
+          <?php foreach ($consulta as $row) { ?>
+            <div class="col-sm-10 col-md-6 card m-2" style="width: 25rem">
+              <div class="card-body">
+                <div class="text-center">
+                  <h5 class="card-title"> <?php echo $row['descripcion'] ?> </h5>
+                </div>
+                <div class="text-start">
+                  <p class="card-text py-2">Marca: <?php echo $row['marca'] ?></p>
+                  <p class="card-text py-2">Modelo: <?php echo $row['modelo'] ?></p>
+                </div>
+                <div class="text-center pt-2">
+                  <div class="row d-flex">
+                    <div class="col boton_reserva">
+                      <!-- Button trigger modal -->
+                      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalReserva">
+                        Agregar
+                      </button>
+                    </div>
+                    <div class="col boton_info">
+                      <!-- Button trigger modal -->
+                      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalInfo">
+                        Mas info
+                      </button>
+                      <!-- Modal -->
+                      <div class="modal fade" id="modalInfo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">
+                                <?php echo $row['descripcion'] ?>
+                              </h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-start">
+                              <p>Marca: <?php echo $row['marca'] ?></p>
+                              <p>Modelo: <?php echo $row['modelo'] ?></p>
+                              <p>AB - Rango: <?php echo $row['ab_rango'] ?></p>
+                              <p>Especificaciones: <?php echo $row['especificaciones'] ?></p>
+                              <p>Adicionales: <?php echo $row['adicionales'] ?></p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                Cerrar
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <?php } ?>
         </div>
       </div>
     </div>
